@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Code Compiler</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+        .code-input {
+            height: 300px;
+        }
+        .input-data {
+            height: 100px;
+        }
+        .output-title {
+            margin-top: 20px;
+        }
+        .output-box {
+            height: 100px;
+            white-space: pre-wrap;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Code Compiler</h1>
+        <form method="post" class="needs-validation" novalidate>
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.language.label_tag }}
+                {{ form.language }}
+            </div>
+            <div class="form-group">
+                {{ form.code.label_tag }}
+                {{ form.code }}
+            </div>
+            <div class="form-group">
+                {{ form.input_data.label_tag }}
+                {{ form.input_data }}
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Run Code</button>
+        </form>
+
+        {% if output %}
+            <h5 class="output-title">OUTPUT</h5>
+            <div class="output-box">
+                <pre>{{ output }}</pre>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

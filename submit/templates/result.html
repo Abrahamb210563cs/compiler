@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Execution Result</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+        .code-output {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Executable Result</h1>
+        <div class="card">
+            <div class="card-body">
+                <p><strong>Language:</strong> {{ submission.language }}</p>
+                <p><strong>Code:</strong></p>
+                <pre class="code-output">{{ submission.code }}</pre>
+                <p><strong>Input:</strong></p>
+                <pre class="code-output">{{ submission.input_data }}</pre>
+                <p><strong>Output:</strong></p>
+                <pre class="code-output">{{ submission.output_data }}</pre>
+                <a href="{% url 'submit' %}" class="btn btn-primary btn-block">Run another code</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
